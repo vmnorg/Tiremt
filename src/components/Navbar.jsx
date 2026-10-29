@@ -1,15 +1,37 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-// [E. Redux Toolkit] : useSelector bach n-qraw l-données mn l-store bla prop-drilling
-import { useSelector } from 'react-redux'
+// [E. Redux Toolkit] : useSelector & useDispatch bach n-qraw/n-modifiw l-données mn l-store bla prop-drilling
+import { useSelector, useDispatch } from 'react-redux'
 import { selectCartCount } from '../redux/cartSlice'
+import { selectIsAuthenticated, selectUser, logout } from '../redux/authSlice'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   // Hna kan-sélectionniw l-3adad total d l-produits li f l-panier direct mn Redux store
   const cartCount = useSelector(selectCartCount)
+  // Auth state : wach l-user mconnecté w les infos dyalou
+  const isAuthenticated = useSelector(selectIsAuthenticated)
+  const user = useSelector(selectUser)
 
   // [A. useState] : State local bach n-géréou wach le menu responsive mftouh wla masdoud f l-mobile
   const [isNavOpen, setIsNavOpen] = useState(false)
+
+  // Déconnexion
+  const handleLogout = () => {
+    dispatch(logout())
+    setIsNavOpen(false)
+  }
+
+  // Initiales de l'utilisateur pour l'avatar
+  const getUserInitials = () => {
+    if (!user?.nom) return '?'
+    return user.nom
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2)
+  }
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar sticky-top">
@@ -79,8 +101,37 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Right Header Section: Cart Button */}
-          <div className="d-flex align-items-center ms-lg-3">
+          {/* Right Header Section: Cart Button + Auth */}
+          <div className="d-flex align-items-center gap-2 ms-lg-3">
+            {/* Auth Button / User Badge */}
+            {isAuthenticated ? (
+              <div className="auth-nav-user" id="nav-user-badge">
+                <span className="auth-nav-user-avatar">
+                  {getUserInitials()}
+                </span>
+                <span className="d-none d-sm-inline">{user?.nom?.split(' ')[0]}</span>
+                <button
+                  className="auth-nav-logout"
+                  onClick={handleLogout}
+                  title="Se déconnecter"
+                  aria-label="Se déconnecter"
+                  id="nav-logout-btn"
+                >
+                  <i className="bi bi-box-arrow-right"></i>
+                </button>
+              </div>
+            ) : (
+              <NavLink
+                to="/auth"
+                className="auth-nav-btn"
+                onClick={() => setIsNavOpen(false)}
+                id="nav-link-auth"
+              >
+                <i className="bi bi-person-circle"></i>
+                <span className="d-none d-sm-inline">Connexion</span>
+              </NavLink>
+            )}
+
             <NavLink
               to="/checkout"
               className="cart-button-nav"
@@ -101,3 +152,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+

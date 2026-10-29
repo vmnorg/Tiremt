@@ -9,6 +9,7 @@ import PlatDetail from './pages/PlatDetail'
 import Checkout from './pages/Checkout'
 import OrderHistory from './pages/OrderHistory'
 import NotFound from './pages/NotFound'
+import AuthPage from './pages/AuthPage'
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
           {/* Route 5: Historique dyal les commandes et suivi du statut */}
           <Route path="/commandes" element={<OrderHistory />} />
 
+          {/* Route 6: Page d'authentification (Login & Register) */}
+          <Route path="/auth" element={<AuthPage />} />
+
           {/* Route 404: Wildcard (*) kat-declencha ila user dkhl chi lien ma-kaynch f l-app */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -47,3 +51,4 @@ function App() {
 }
 
 export default App
+

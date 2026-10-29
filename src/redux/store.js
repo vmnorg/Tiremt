@@ -2,9 +2,10 @@ import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from './cartSlice'
 import menuReducer from './menuSlice'
 import orderReducer from './orderSlice'
+import authReducer from './authSlice'
 
 // [E. Redux Toolkit : configureStore & Middleware] :
-// Hna configureStore kat-jm3 ga3 les reducers (cart, menu, order) f un seul store unique global.
+// Hna configureStore kat-jm3 ga3 les reducers (cart, menu, order, auth) f un seul store unique global.
 // Kat-remplaci createStore() d Redux classique li wlat dépréciée.
 
 // Middleware Logger (équivalent à redux-logger) :
@@ -31,6 +32,7 @@ export const store = configureStore({
     cart: cartReducer,
     menu: menuReducer,
     order: orderReducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
