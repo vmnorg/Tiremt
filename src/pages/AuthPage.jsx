@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { motion, AnimatePresence } from 'framer-motion'
-import tiremtLogo from '../assets/logo-cream.png'
+import tiremtLogo from '../assets/logo.png'
 import {
   login,
   register,
@@ -13,9 +13,7 @@ import {
 
 // ============================================================
 // Cinematic Waiter Component — Séquence d'accueil Maître d'Hôtel
-// Un serveur de prestige entre en scène avec prestance, portant un
-// plateau avec cloche dorée, ouvre la cloche dans un éclat d'arômes
-// dorés, puis révèle le formulaire de connexion/inscription.
+// Aux couleurs chaudes et élégantes de Tiremt (Safran, Or & Ambre)
 // ============================================================
 const WaiterAnimation = ({ onComplete }) => {
   return (
@@ -26,7 +24,7 @@ const WaiterAnimation = ({ onComplete }) => {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Ambient Spotlight */}
+      {/* Ambient Warm Spotlight */}
       <div className="auth-waiter-spotlight" />
 
       {/* Main Waiter & Platter SVG Scene */}
@@ -37,39 +35,39 @@ const WaiterAnimation = ({ onComplete }) => {
         style={{ overflow: 'visible', maxWidth: '100%' }}
       >
         <defs>
-          {/* Gradients */}
+          {/* Gradients harmonisés avec la palette Tiremt */}
           <radialGradient id="floorShadowGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(0,0,0,0.65)" />
-            <stop offset="60%" stopColor="rgba(212,175,55,0.18)" />
+            <stop offset="0%" stopColor="rgba(17, 24, 39, 0.22)" />
+            <stop offset="60%" stopColor="rgba(234, 88, 12, 0.1)" />
             <stop offset="100%" stopColor="transparent" />
           </radialGradient>
 
           <linearGradient id="trayGoldGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#7A6020" />
-            <stop offset="25%" stopColor="#D4AF37" />
-            <stop offset="50%" stopColor="#FFF2B2" />
-            <stop offset="75%" stopColor="#D4AF37" />
-            <stop offset="100%" stopColor="#7A6020" />
+            <stop offset="0%" stopColor="#c2410c" />
+            <stop offset="25%" stopColor="#ea580c" />
+            <stop offset="50%" stopColor="#fed7aa" />
+            <stop offset="75%" stopColor="#f59e0b" />
+            <stop offset="100%" stopColor="#9a3412" />
           </linearGradient>
 
           <linearGradient id="clocheGoldGrad" x1="0.1" y1="0" x2="0.9" y2="1">
-            <stop offset="0%" stopColor="#B38F28" />
-            <stop offset="20%" stopColor="#F5D76E" />
-            <stop offset="45%" stopColor="#D4AF37" />
-            <stop offset="70%" stopColor="#FFF4C2" />
-            <stop offset="85%" stopColor="#D4AF37" />
-            <stop offset="100%" stopColor="#8A6B1C" />
+            <stop offset="0%" stopColor="#c2410c" />
+            <stop offset="20%" stopColor="#f97316" />
+            <stop offset="45%" stopColor="#f59e0b" />
+            <stop offset="70%" stopColor="#fef08a" />
+            <stop offset="85%" stopColor="#f59e0b" />
+            <stop offset="100%" stopColor="#9a3412" />
           </linearGradient>
 
           <radialGradient id="knobGoldGrad" cx="35%" cy="35%" r="65%">
-            <stop offset="0%" stopColor="#FFF9D6" />
-            <stop offset="45%" stopColor="#F5D76E" />
-            <stop offset="100%" stopColor="#8B6914" />
+            <stop offset="0%" stopColor="#fffbeb" />
+            <stop offset="45%" stopColor="#f59e0b" />
+            <stop offset="100%" stopColor="#b45309" />
           </radialGradient>
 
           <radialGradient id="gourmetGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(245, 215, 110, 0.95)" />
-            <stop offset="45%" stopColor="rgba(212, 175, 55, 0.45)" />
+            <stop offset="0%" stopColor="rgba(249, 115, 22, 0.9)" />
+            <stop offset="45%" stopColor="rgba(245, 158, 11, 0.45)" />
             <stop offset="100%" stopColor="transparent" />
           </radialGradient>
         </defs>
@@ -106,54 +104,54 @@ const WaiterAnimation = ({ onComplete }) => {
           <g>
             <path
               d="M 148 298 C 145 298 135 304 135 308 L 165 308 C 165 304 160 298 155 298 Z"
-              fill="#0d0d0f"
+              fill="#0f172a"
             />
             <path
               d="M 185 298 C 182 298 172 304 172 308 L 202 308 C 202 304 197 298 192 298 Z"
-              fill="#0d0d0f"
+              fill="#0f172a"
             />
-            {/* Liseré or semelle */}
-            <line x1="135" y1="308" x2="165" y2="308" stroke="rgba(212,175,55,0.4)" strokeWidth="0.8" />
-            <line x1="172" y1="308" x2="202" y2="308" stroke="rgba(212,175,55,0.4)" strokeWidth="0.8" />
+            {/* Liseré semelle chaud */}
+            <line x1="135" y1="308" x2="165" y2="308" stroke="rgba(245, 158, 11, 0.4)" strokeWidth="0.8" />
+            <line x1="172" y1="308" x2="202" y2="308" stroke="rgba(245, 158, 11, 0.4)" strokeWidth="0.8" />
           </g>
 
-          {/* Pantalon de costume noir ajusté */}
+          {/* Pantalon de costume anthracite ajusté */}
           <g>
-            <path d="M 152 230 L 145 298 L 162 298 L 166 230 Z" fill="#121215" />
-            <path d="M 174 230 L 178 298 L 195 298 L 188 230 Z" fill="#18181d" />
-            <line x1="153" y1="234" x2="153" y2="295" stroke="rgba(255,255,255,0.06)" strokeWidth="0.7" />
-            <line x1="186" y1="234" x2="186" y2="295" stroke="rgba(255,255,255,0.06)" strokeWidth="0.7" />
+            <path d="M 152 230 L 145 298 L 162 298 L 166 230 Z" fill="#1e293b" />
+            <path d="M 174 230 L 178 298 L 195 298 L 188 230 Z" fill="#334155" />
+            <line x1="153" y1="234" x2="153" y2="295" stroke="rgba(255,255,255,0.08)" strokeWidth="0.7" />
+            <line x1="186" y1="234" x2="186" y2="295" stroke="rgba(255,255,255,0.08)" strokeWidth="0.7" />
           </g>
 
-          {/* Veste de smoking / Gilet de maître d'hôtel avec boutons or */}
+          {/* Veste de smoking / Gilet de maître d'hôtel avec boutons dorés */}
           <g>
             <path
               d="M 145 160 C 140 190 148 240 190 240 C 225 240 235 190 230 160 C 220 145 155 145 145 160 Z"
-              fill="#151519"
-              stroke="#26262b"
+              fill="#1e293b"
+              stroke="#334155"
               strokeWidth="0.6"
             />
 
             {/* Plastron chemise blanche immaculée */}
-            <polygon points="175,142 200,142 195,195 180,195" fill="#f8fafc" />
+            <polygon points="175,142 200,142 195,195 180,195" fill="#ffffff" />
 
-            {/* Revers de veste liseré or */}
-            <path d="M 155 150 L 172 205 L 185 205 L 170 150 Z" fill="#1c1c22" stroke="#b8860b" strokeWidth="0.8" />
-            <path d="M 220 150 L 202 205 L 190 205 L 205 150 Z" fill="#222228" stroke="#b8860b" strokeWidth="0.8" />
+            {/* Revers de veste liseré chaud */}
+            <path d="M 155 150 L 172 205 L 185 205 L 170 150 Z" fill="#0f172a" stroke="#ea580c" strokeWidth="0.8" />
+            <path d="M 220 150 L 202 205 L 190 205 L 205 150 Z" fill="#1e293b" stroke="#ea580c" strokeWidth="0.8" />
 
             {/* Boutons dorés du gilet */}
-            <circle cx="187.5" cy="198" r="2.2" fill="#D4AF37" />
-            <circle cx="187.5" cy="212" r="2.2" fill="#D4AF37" />
-            <circle cx="187.5" cy="226" r="2.2" fill="#D4AF37" />
+            <circle cx="187.5" cy="198" r="2.2" fill="#f59e0b" />
+            <circle cx="187.5" cy="212" r="2.2" fill="#f59e0b" />
+            <circle cx="187.5" cy="226" r="2.2" fill="#f59e0b" />
 
-            {/* Pochette de costume dorée */}
-            <line x1="158" y1="178" x2="174" y2="178" stroke="#2a2a32" strokeWidth="1.5" />
-            <polygon points="163,178 168,168 173,178" fill="#D4AF37" />
+            {/* Pochette de costume orangée */}
+            <line x1="158" y1="178" x2="174" y2="178" stroke="#334155" strokeWidth="1.5" />
+            <polygon points="163,178 168,168 173,178" fill="#ea580c" />
 
-            {/* Nœud papillon chic noir & or */}
-            <polygon points="187,142 178,138 178,146" fill="#0f0f12" stroke="#D4AF37" strokeWidth="0.5" />
-            <polygon points="188,142 197,138 197,146" fill="#0f0f12" stroke="#D4AF37" strokeWidth="0.5" />
-            <rect x="185.5" y="140" width="4" height="4" rx="1" fill="#F5D76E" />
+            {/* Nœud papillon chic safran & ambre */}
+            <polygon points="187,142 178,138 178,146" fill="#ea580c" stroke="#c2410c" strokeWidth="0.5" />
+            <polygon points="188,142 197,138 197,146" fill="#ea580c" stroke="#c2410c" strokeWidth="0.5" />
+            <rect x="185.5" y="140" width="4" height="4" rx="1" fill="#f59e0b" />
           </g>
 
           {/* Tête, Coiffure & Visage en profil noble (nodding animation) */}
@@ -171,7 +169,7 @@ const WaiterAnimation = ({ onComplete }) => {
             {/* Cou */}
             <rect x="182" y="128" width="11" height="14" rx="2" fill="#D4A574" />
             {/* Col de chemise empesé */}
-            <polygon points="180,138 187,144 194,138 188,136" fill="#ffffff" stroke="#ddd" strokeWidth="0.5" />
+            <polygon points="180,138 187,144 194,138 188,136" fill="#ffffff" stroke="#cbd5e1" strokeWidth="0.5" />
 
             {/* Profil visage */}
             <path
@@ -181,53 +179,53 @@ const WaiterAnimation = ({ onComplete }) => {
             {/* Oreille */}
             <ellipse cx="180" cy="115" rx="3.5" ry="5.5" fill="#C4956A" />
             {/* Œil attentif & bienveillant */}
-            <path d="M 194 111 Q 197 109 200 111" stroke="#1a1a1a" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-            {/* Moustache fine à la française */}
-            <path d="M 194 122 Q 199 120 204 121 Q 206 123 203 124 Q 198 124 194 122 Z" fill="#1a1a1a" />
+            <path d="M 194 111 Q 197 109 200 111" stroke="#0f172a" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+            {/* Moustache fine */}
+            <path d="M 194 122 Q 199 120 204 121 Q 206 123 203 124 Q 198 124 194 122 Z" fill="#0f172a" />
             {/* Sourire accueillant */}
             <path d="M 195 125 Q 198 127 201 125" stroke="#7a3e20" strokeWidth="1" fill="none" strokeLinecap="round" />
 
-            {/* Coiffure soignée avec éclat doré */}
+            {/* Coiffure soignée */}
             <path
               d="M 174 108 C 172 90 185 82 200 86 C 206 88 208 96 204 104 C 196 98 185 99 178 108 Z"
-              fill="#1e1e24"
+              fill="#0f172a"
             />
             <path
               d="M 182 87 Q 194 85 201 89"
-              stroke="rgba(212, 175, 55, 0.45)"
+              stroke="rgba(245, 158, 11, 0.45)"
               strokeWidth="1.5"
               fill="none"
               strokeLinecap="round"
             />
           </motion.g>
 
-          {/* Bras gauche au repos avec torchon de sommelier blanc & or */}
+          {/* Bras gauche au repos avec torchon de sommelier blanc & safran */}
           <g>
             {/* Manche gauche */}
             <path
               d="M 152 165 C 130 185 130 220 152 230 C 158 226 158 215 146 205 C 142 190 148 175 160 168 Z"
-              fill="#121215"
+              fill="#1e293b"
             />
-            {/* Torchon de service blanc drapé élégamment sur l'avant-bras */}
+            {/* Torchon de service blanc drapé élégamment */}
             <path
               d="M 134 200 C 130 215 130 255 132 270 L 148 266 C 146 245 145 215 146 198 Z"
-              fill="#f8fafc"
+              fill="#ffffff"
               stroke="#e2e8f0"
               strokeWidth="0.5"
             />
             {/* Pli du torchon */}
             <line x1="139" y1="202" x2="140" y2="268" stroke="#cbd5e1" strokeWidth="0.8" />
-            {/* Double liseré brodé d'or sur l'ourlet */}
-            <line x1="132" y1="262" x2="148" y2="258" stroke="#D4AF37" strokeWidth="1.2" />
-            <line x1="133" y1="265" x2="147" y2="261" stroke="#D4AF37" strokeWidth="0.8" />
+            {/* Double liseré brodé safran sur l'ourlet */}
+            <line x1="132" y1="262" x2="148" y2="258" stroke="#ea580c" strokeWidth="1.2" />
+            <line x1="133" y1="265" x2="147" y2="261" stroke="#f59e0b" strokeWidth="0.8" />
           </g>
 
           {/* Bras droit relevé portant fièrement le plateau */}
           <g>
             <path
               d="M 218 160 C 235 178 244 195 244 212 C 248 212 254 208 255 195 C 255 175 258 160 260 150 L 248 148 C 246 160 240 178 236 195 C 234 185 228 172 216 160 Z"
-              fill="#151519"
-              stroke="#24242a"
+              fill="#1e293b"
+              stroke="#334155"
               strokeWidth="0.5"
             />
             {/* Poignet de chemise blanc */}
@@ -241,7 +239,7 @@ const WaiterAnimation = ({ onComplete }) => {
               fill="#ffffff"
             />
             {/* Bouton de manchette or */}
-            <circle cx="255" cy="149" r="1.5" fill="#D4AF37" />
+            <circle cx="255" cy="149" r="1.5" fill="#f59e0b" />
             {/* Main soutenant le plateau par en-dessous */}
             <path
               d="M 248 145 C 250 140 258 138 266 140 C 272 142 274 146 268 147 L 250 148 Z"
@@ -249,16 +247,16 @@ const WaiterAnimation = ({ onComplete }) => {
             />
           </g>
 
-          {/* === 2. LE PLATEAU EN ARGENT ET OR (TRAY) === */}
+          {/* === 2. LE PLATEAU EN OR ET CUIVRE (TRAY) === */}
           <g>
-            {/* Surface du plateau avec dégradé métallique */}
+            {/* Surface du plateau avec dégradé métallique chaud */}
             <ellipse
               cx="260"
               cy="138"
               rx="85"
               ry="13"
               fill="url(#trayGoldGrad)"
-              stroke="#8A6B1C"
+              stroke="#c2410c"
               strokeWidth="1.5"
             />
             {/* Rebord intérieur miroir */}
@@ -268,13 +266,13 @@ const WaiterAnimation = ({ onComplete }) => {
               rx="76"
               ry="10"
               fill="none"
-              stroke="rgba(255,255,255,0.4)"
+              stroke="rgba(255,255,255,0.6)"
               strokeWidth="0.8"
             />
             {/* Reflet de brillance lumineuse */}
             <path
               d="M 190 139 Q 260 146 330 139"
-              stroke="rgba(255,255,255,0.5)"
+              stroke="rgba(255,255,255,0.7)"
               strokeWidth="1"
               fill="none"
             />
@@ -282,9 +280,9 @@ const WaiterAnimation = ({ onComplete }) => {
 
           {/* === 3. LE METS GOURMAND RÉVÉLÉ SOUS LA CLOCHE === */}
           <g>
-            {/* Base assiette gastronomique dorée */}
-            <ellipse cx="260" cy="136" rx="60" ry="7" fill="#8B7335" />
-            <ellipse cx="260" cy="135" rx="55" ry="5.5" fill="#F5D76E" opacity="0.6" />
+            {/* Base assiette gastronomique */}
+            <ellipse cx="260" cy="136" rx="60" ry="7" fill="#c2410c" />
+            <ellipse cx="260" cy="135" rx="55" ry="5.5" fill="#f59e0b" opacity="0.7" />
 
             {/* Halo de chaleur et lumière gastronomique */}
             <motion.ellipse
@@ -327,28 +325,28 @@ const WaiterAnimation = ({ onComplete }) => {
             <path
               d="M 205 136 C 205 65 315 65 315 136 Z"
               fill="url(#clocheGoldGrad)"
-              stroke="#B8860B"
+              stroke="#ea580c"
               strokeWidth="2"
             />
             {/* Reflet courbe de la cloche */}
             <path
               d="M 225 125 C 225 80 255 70 275 68"
-              stroke="rgba(255,255,255,0.3)"
+              stroke="rgba(255,255,255,0.4)"
               strokeWidth="2.5"
               strokeLinecap="round"
               fill="none"
             />
             {/* Poignée ornementale de la cloche */}
-            <ellipse cx="260" cy="65" rx="8" ry="3" fill="#B8860B" />
+            <ellipse cx="260" cy="65" rx="8" ry="3" fill="#c2410c" />
             <circle
               cx="260"
               cy="58"
               r="9"
               fill="url(#knobGoldGrad)"
-              stroke="#B8860B"
+              stroke="#ea580c"
               strokeWidth="1.2"
             />
-            <circle cx="258" cy="55" r="2.5" fill="rgba(255,255,255,0.7)" />
+            <circle cx="258" cy="55" r="2.5" fill="rgba(255,255,255,0.8)" />
           </motion.g>
 
           {/* === 5. VOLUTES DE VAPEUR AROMATIQUE (STEAM) === */}
@@ -361,7 +359,7 @@ const WaiterAnimation = ({ onComplete }) => {
               key={`steam-${i}`}
               d={steam.d}
               fill="none"
-              stroke="rgba(245, 215, 110, 0.55)"
+              stroke="rgba(234, 88, 12, 0.55)"
               strokeWidth="2.2"
               strokeLinecap="round"
               initial={{ opacity: 0, pathLength: 0 }}
@@ -403,13 +401,13 @@ const WaiterAnimation = ({ onComplete }) => {
                 ease: 'easeOut',
               }}
             >
-              <circle cx={sparkle.x} cy={sparkle.y} r="2.5" fill="#FFF4C2" />
+              <circle cx={sparkle.x} cy={sparkle.y} r="2.5" fill="#f59e0b" />
               <line
                 x1={sparkle.x - 6}
                 y1={sparkle.y}
                 x2={sparkle.x + 6}
                 y2={sparkle.y}
-                stroke="#D4AF37"
+                stroke="#ea580c"
                 strokeWidth="1.2"
                 strokeLinecap="round"
               />
@@ -418,7 +416,7 @@ const WaiterAnimation = ({ onComplete }) => {
                 y1={sparkle.y - 6}
                 x2={sparkle.x}
                 y2={sparkle.y + 6}
-                stroke="#D4AF37"
+                stroke="#ea580c"
                 strokeWidth="1.2"
                 strokeLinecap="round"
               />

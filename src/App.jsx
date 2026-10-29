@@ -1,6 +1,7 @@
 import React from 'react'
 // [D. Routage React Router] : Hna kan-importiw les composants dyal navigation f React Router v7
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -15,6 +16,9 @@ function App() {
   return (
     // BrowserRouter: Hada houwa l-wrapper principal li ki-f3el l-routing f l'application kamla
     <BrowserRouter>
+      {/* ScrollToTop: Reviens automatiquement en haut de la page à chaque changement d'URL */}
+      <ScrollToTop />
+
       {/* Navbar dima bayna l-fo9 f ga3 les pages */}
       <Navbar />
 
