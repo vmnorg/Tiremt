@@ -366,7 +366,7 @@ const Checkout = () => {
                             onChange={() => setSelectedSlot('asap')}
                           />
                         </div>
-                        <strong className="text-dark small">19h45 – 20h15</strong>
+                        <strong className="text-dark small">12h45 – 15h15</strong>
                         <small className="text-muted" style={{ fontSize: '0.75rem' }}>30 min estimé</small>
                       </div>
                     </div>
@@ -378,7 +378,7 @@ const Checkout = () => {
                       >
                         <div className="d-flex justify-content-between align-items-center mb-1">
                           <span className="badge bg-light text-muted text-uppercase small">
-                            Dîner Médian
+                            Déjeuner Tard
                           </span>
                           <input
                             type="radio"
@@ -387,7 +387,7 @@ const Checkout = () => {
                             onChange={() => setSelectedSlot('diner')}
                           />
                         </div>
-                        <strong className="text-dark small">20h30 – 21h00</strong>
+                        <strong className="text-dark small">15h30 – 21h00</strong>
                         <small className="text-muted" style={{ fontSize: '0.75rem' }}>Sur réservation</small>
                       </div>
                     </div>
@@ -399,7 +399,7 @@ const Checkout = () => {
                       >
                         <div className="d-flex justify-content-between align-items-center mb-1">
                           <span className="badge bg-light text-muted text-uppercase small">
-                            Tardif
+                            Dîner
                           </span>
                           <input
                             type="radio"
@@ -408,7 +408,7 @@ const Checkout = () => {
                             onChange={() => setSelectedSlot('late')}
                           />
                         </div>
-                        <strong className="text-dark small">21h30 – 22h00</strong>
+                        <strong className="text-dark small">21h30 – 23h30</strong>
                         <small className="text-muted" style={{ fontSize: '0.75rem' }}>Service nocturne</small>
                       </div>
                     </div>
