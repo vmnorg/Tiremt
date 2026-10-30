@@ -531,11 +531,11 @@ const Home = () => {
               </a>
 
               <a
-                href="tel:+212528862024"
+                href="tel:+212625956132"
                 className="btn btn-outline-dark rounded-pill px-4 py-2.5 fw-bold d-inline-flex align-items-center gap-2"
               >
                 <i className="bi bi-telephone"></i>
-                <span>+212 (0)5 28 86 20 24</span>
+                <span>+212 (0)6 25 95 61 32</span>
               </a>
 
               <Link to="/menu" className="btn btn-warning rounded-pill px-4 py-2.5 fw-bold">

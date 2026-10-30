@@ -4,7 +4,7 @@ import React, { useState } from 'react'
  * =========================================================================
  * Composant : TeamSection.jsx
  * =========================================================================
- * 🇲🇦 DARIJA EXPLANATION (Pour la soutenance devant le professeur) :
+
  * -------------------------------------------------------------------------
  * - Hada composant jdid li kay-afficher l'équipe dyal restaurant TIREMT.
  * - Le point fort f had l-composant houwa:
